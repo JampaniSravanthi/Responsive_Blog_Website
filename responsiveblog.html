@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+<style>
+	body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, nav, section, footer {
+  padding: 5px;
+}
+header{
+ text-align: center;
+}
+body {
+  background-image: url("background.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+ /* adding background image using CSS */
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  padding: 10px;
+  text-decoration: none;
+  
+}
+footer {
+  text-align: center;
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>Welcome To My Responsive Website</h1>
+  </header>
+	
+  <nav>
+	  <center>
+      <ul>
+        <li> <a href="#"><u>Home</u></a> </li>
+        <li> <a href="#"><u>About</u></a> </li>
+      
+        <li> <a href="#contact-sec"><u>Contact Us</u></a> </li>
+      </ul>
+    </center>
+  </nav>
+  <section>
+	  <h2><u>Five tips for front-end web development</u> :-</h2>
+	  <br>
+	  <p>Don’t you just love exploring beautiful and neat sites with a clean user interface? While most of us would reply with an assertive ‘YES,’ little, do we know the kind of effort and skill that goes into making a website attractive and user-friendly. The secret to creating an impressive site is to master the art of front-end development, and no, it is not as easy as it seems!
+
+	  However, it is not impossible either. </p>
+	  <p>Here are five tips that’ll help you get better in front-end design and web development.
+
+	  </p>
+	  <ol>
+		  <li><b>Commenting</b></li>	
+		  <p>Commenting is one such practice that is often ignored by programmers, especially for codes that are written by multiple programmers. But remember, commenting is an important part of project you create. With proper comments and organised files its always easier for you or others to jump in and understand where things are at and how they work.</p>
+		  <li><b>Invest In Productive Tools.</b></li>
+		  <p>The Internet is teeming with a host of web development tools, from browser add-ons to smart plugins, the amount of choices available now is massive! So, why not invest in some really productive web tools that’ll help you improve your front-end designing skills? Tools like Sublime Text, jQuery, Emmet, Bootstrap, and Sass are nothing short of a godsend for web developers.</p>
+		  <li><b>Always Be Curious.</b></li>
+			<p>A front-end developer has to keep himself/herself updated continuously with the latest news and innovations in the field. You need to take a proactive stand and learn new things about front-end development from informative blogs and videos. Following are some of the most informative and useful learning sources for front-end developers -</p>
+			<ul type="circle">
+        <li> <a href="https://frontendfoc.us/" target="_blank"> Frontend Focus </a> </li>
+        <li> <a href="https://css-weekly.com/" target="_blank"> CSS Weekly </a> </li>
+        <li> <a href="https://javascriptweekly.com/" target="_blank"> JavaScript Weekly </a> </li>
+        <li> <a href="https://web-design-weekly.com/" target="_blank"> Web Design Weekly </a> </li>
+        <li> <a href="https://tympanus.net/codrops/" target="_blank"> Codrops </a> </li>
+        <li> <a href="https://shoptalkshow.com/" target="_blank"> ShopTalk Podcast </a> </li>
+      </ul>
+
+		  <li><b>Refactor Your Code From Time To Time.</b></li>
+			<p>By “refactoring” your code, you’re only enhancing the code without tampering with its functionality. This will improve the quality and readability quotient of your code and the more often you do it, your code will continually be updated into a cleaner and fresher version of what it was before. Apart from that, one of the most significant advantages that refactoring offers is that it ensures your code remains free from plagiarism.</p>
+
+		  <li><b>Version Control</b></li>
+		  <p>As a developer, version control is something that you must know about. Version control systems let you keep track of changes made to the code over time. And not just this, they also make it easy to revert back to an earlier version if you screw something up. Thus using verion control will save you some sleepless nights for sure. One of the most widely used version control systems is Git. Thus knowing git has been a requirement for almost every development job these days.</p>
+		  <p>While these tips will surely help you become a better front-end designer, in the long run, you must always remember two things while designing your platform – keep it simple and neat, and don’t forget to create your signature style.</p>
+	  </ol>
+		
+    	
+  </section>
+	<section id="contact-sec">
+		<div class="container">
+    	<h2>Contact Us</h2>
+      <form id="contact-form">
+        <label for="name">Name:</label>
+      	<input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+		    <br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+  	</div>
+	</section>
+  	<footer>
+    	<p>&copy; 2023 My Responsive Website. All rights reserved.</p>
+  	</footer>
+	<script>
+	const contactForm = document.getElementById("contact-form");
+
+  contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  if (!name || !email || !message) {
+    alert("Please fill in all fields.");
+      return;
+ }
+  fetch("/your-server-script.php", {
+  method: "POST",
+  body: JSON.stringify({ name, email, message }),
+  headers: {
+    "Content-Type": "application/json"
+  }    })
+  .then(response => 
+  {
+      if (response.ok) {
+        alert("Message sent successfully!");
+        contactForm.reset();
+      } 
+      else {
+          alert("Message sending failed. Please try again later.");
+        } 
+  })
+  .catch(error => {
+  console.error("Error:", error);
+  alert("An error occurred. Please try again later.");
+  });
+  });
+	</script>
+</body>
+</html>
+
+
